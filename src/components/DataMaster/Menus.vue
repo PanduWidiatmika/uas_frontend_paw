@@ -19,7 +19,7 @@
     </v-card>
 
     <v-dialog v-model="dialog" persistent max-width="600px">
-      <v-card>
+        <v-card>
         <v-card-title>
           <span class="headline">{{ formTitle }} Menu</span>
         </v-card-title>
@@ -29,15 +29,7 @@
             <v-text-field v-model="form.nama_menu" label="Nama Menu" required></v-text-field>
             <v-text-field v-model="form.deskripsi" label="Deskripsi" required></v-text-field>
             <v-text-field v-model="form.harga" label="Harga" required></v-text-field>
-            <!-- <v-text-field v-model="form.kategori" label="Kategori" required></v-text-field> -->
-            <!-- <v-select :items="['Makanan', 'Minuman']" label="Kategori" required v-model="kategori">
-              <template v-slot:item="{ item, attrs, on }">
-                <v-list-item v-bind="attrs" v-on="on">
-                  <v-list-item-title :id="attrs['aria-labelledby']" v-text="item"></v-list-item-title>
-                </v-list-item>
-              </template>
-            </v-select> -->
-            <v-select filled rounded append-icon="mdi-shape" v-model="kategori" :items="items" item-text="name" item-value="id" label="Pilih Kategori" persistent-hint return-object single-line></v-select>
+            <v-select v-model="form.kategori" :items=itemsKategori label="Kategori" required></v-select>
           </v-container>
         </v-card-text>
         <v-card-action>
@@ -79,8 +71,7 @@ export default {
       search: null,
       dialog: false,
       dialogConfirm: false,
-      name: [],
-      items: [{ name: "Makanan" }, { name: "Minuman" }],
+      itemsKategori: [ "Makanan" , "Minuman" ],
       headers: [
         {
           text: "Nama Menu",

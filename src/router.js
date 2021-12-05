@@ -27,11 +27,11 @@ const router = new VueRouter({
           meta: { title: "Menu" },
           component: importComponent("DataMaster/Menus"),
         },
-        
+
         {
           path: "/transaction",
           name: "Transaction",
-          meta: { title: 'Transactions' },
+          meta: { title: "Transactions" },
           component: importComponent("DataMaster/Transaction"),
         },
       ],
@@ -42,6 +42,13 @@ const router = new VueRouter({
       name: "Login",
       meta: { title: "Login" },
       component: importComponent("Login"),
+    },
+
+    {
+      path: "/register",
+      name: "Register",
+      meta: { title: "Register" },
+      component: importComponent("Register"),
     },
 
     {
