@@ -3,8 +3,8 @@
     <v-navigation-drawer v-model="drawer" class="fullheight" width="256" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="title"> Pandu </v-list-item-title>
-          <v-list-item-subtitle>190710138</v-list-item-subtitle>
+          <v-list-item-title class="title"> Waroong </v-list-item-title>
+          <v-list-item-subtitle>Kelompok 6</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
@@ -18,7 +18,7 @@
     </v-navigation-drawer>
     <v-app-bar app fixed height="75px">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <VSpacer />
+      <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn text router><v-icon>mdi-power</v-icon></v-btn>
       </v-toolbar-items>
@@ -38,6 +38,7 @@ export default {
       items: [
         { title: "Dashboard", to: "/dashboard" },
         { title: "Menu", to: "/menu" },
+        { title: "Transaksi", to: "/transaction"},
       ],
     };
   },

@@ -27,6 +27,13 @@ const router = new VueRouter({
           meta: { title: "Menu" },
           component: importComponent("DataMaster/Menus"),
         },
+        
+        {
+          path: "/transaction",
+          name: "Transaction",
+          meta: { title: 'Transactions' },
+          component: importComponent("DataMaster/Transaction"),
+        },
       ],
     },
 
