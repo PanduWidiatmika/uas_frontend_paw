@@ -34,6 +34,13 @@ const router = new VueRouter({
           meta: { title: "Transactions" },
           component: importComponent("DataMaster/Transaction"),
         },
+
+        {
+          path: "/pegawai",
+          name: "Pegawai",
+          meta: { title: "Pegawais" },
+          component: importComponent("DataMaster/Pegawais"),
+        },
       ],
     },
 

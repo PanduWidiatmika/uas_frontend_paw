@@ -39,6 +39,7 @@ export default {
         { title: "Dashboard", to: "/dashboard" },
         { title: "Menu", to: "/menu" },
         { title: "Transaksi", to: "/transaction"},
+        { title: "Pegawai", to: "/pegawai"},
       ],
     };
   },
