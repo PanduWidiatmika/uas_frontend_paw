@@ -123,7 +123,7 @@ export default {
       this.menu.append("nama_menu", this.form.nama_menu);
       this.menu.append("deskripsi", this.form.deskripsi);
       this.menu.append("harga", this.form.harga);
-      this.menu.append("kategori", this.kategori.name);
+      this.menu.append("kategori", this.itemsKategori);
 
       var url = this.$api + "/menu/";
       this.load = true;
