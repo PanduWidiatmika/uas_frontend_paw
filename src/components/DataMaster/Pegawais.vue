@@ -17,7 +17,7 @@
                 <v-btn color="success" dark @click="dialog = true">Tambah</v-btn>  
 
             </v-card-title>
-            <v-data-table :headers="headers" :items="courses" :search="search">
+            <v-data-table :headers="headers" :items="pegawais" :search="search">
                 <template v-slot:[`item.actions`]="{ item }">
                     <v-btn small class="mr-2" @click="editHandler(item)">edit</v-btn>
                     <v-btn small @click="deleteHandler(item.id)">delete</v-btn>
@@ -35,10 +35,12 @@
                         <v-text-field v-model="form.nama" label="Nama Pegawai" required></v-text-field>
                         <v-text-field v-model="form.nip" label="NIP" required></v-text-field>
                         <v-select v-model="form.jenis_kelamin" :items=itemsJenisKelamin label="Jenis Kelamin" required></v-select>
-                        <datepicker v-model="form.tanggal_lahir" format="yyyy-MM-dd" label="Tgl Lahir" required></datepicker>
+                        <b-form-datepicker id="datepicker" v-model="form.tanggal_lahir" class="mb-2" :max="max" size="sm" placeholder="Tgl Lahir"></b-form-datepicker>
+                        <p></p>
                         <v-text-field v-model="form.alamat" label="Alamat" required></v-text-field>
                         <v-text-field v-model="form.jabatan" label="Jabatan" required></v-text-field>
-                        <datepicker v-model="form.tanggal_masuk" format="yyyy-MM-dd" label="Tgl Masuk" required></datepicker>
+                        <b-form-datepicker id="datepicker2" v-model="form.tanggal_masuk" class="mb-2" :max="max" size="sm" placeholder="Tgl Masuk"></b-form-datepicker>
+                        <p></p>
                         <v-text-field v-model="form.gaji" label="Gaji" required></v-text-field>
                     </v-container>
                 </v-card-text>
@@ -100,8 +102,8 @@ import Datepicker from 'vuejs-datepicker'
                     { text: "Gaji", value: "gaji"},
                     { text: "Actions", value: "actions"},
                 ],
-                course: new FormData,
-                courses: [],
+                pegawai: new FormData,
+                pegawais: [],
                 form: {
                     nama: null,
                     nip: null,
@@ -138,14 +140,14 @@ import Datepicker from 'vuejs-datepicker'
             },
 
             save(){
-                this.course.append('nama', this.form.nama);
-                this.course.append('nip', this.form.nip);
-                this.course.append('jenis_kelamin', this.form.jenis_kelamin);
-                this.course.append('tanggal_lahir', this.form.tanggal_lahir);
-                this.course.append('alamat', this.form.alamat);
-                this.course.append('jabatan', this.form.jabatan);
-                this.course.append('tanggal_masuk', this.form.tanggal_masuk);
-                this.course.append('gaji', this.form.gaji);
+                this.pegawai.append('nama', this.form.nama);
+                this.pegawai.append('nip', this.form.nip);
+                this.pegawai.append('jenis_kelamin', this.form.jenis_kelamin);
+                this.pegawai.append('tanggal_lahir', this.form.tanggal_lahir);
+                this.pegawai.append('alamat', this.form.alamat);
+                this.pegawai.append('jabatan', this.form.jabatan);
+                this.pegawai.append('tanggal_masuk', this.form.tanggal_masuk);
+                this.pegawai.append('gaji', this.form.gaji);
 
                 var url = this.$api + '/pegawai/'
                 this.load = true;
