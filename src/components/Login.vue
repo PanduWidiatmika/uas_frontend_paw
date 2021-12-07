@@ -5,7 +5,7 @@
         <v-flex xs12 sm6 elevation-6>
           <v-toolbar class="grey darken-3">
             <v-toolbar-title class="grey--text">
-              <h1>Met dtengy bossque, xixixi</h1>
+              <h1>Login</h1>
             </v-toolbar-title>
           </v-toolbar>
           <v-card>
@@ -15,7 +15,9 @@
                   <v-text-field label="E-mail" v-model="email" :rules="emailRules" required></v-text-field>
                   <v-text-field label="Password" v-model="password" type="password" min="8" :rules="passwordRules" counter required></v-text-field>
                   <v-layout justify-end>
-                    <v-btn class="mr-2" @click="submit" :class="{ 'grey darken-1 white--text': valid, disabled: !valid }">Go</v-btn>
+                    <v-btn @click="register" class="pink darken-3 white--text ">Register</v-btn>
+                    <v-spacer></v-spacer>
+                    <v-btn class="mr-2" @click="submit" :class="{ 'blue darken-1 white--text': valid, disabled: !valid }">Go</v-btn>
                     <v-btn @click="clear" class="grey darken-3 white--text">Clear</v-btn>
                   </v-layout>
                 </v-form>
@@ -91,6 +93,12 @@ export default {
             this.load = false;
           });
       }
+    },
+
+    register() {
+      this.$router.push({
+        name: "Register",
+      })
     },
 
     clear() {
