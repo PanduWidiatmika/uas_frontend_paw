@@ -1,10 +1,10 @@
 <template>
   <div class="dashboard">
-    <v-navigation-drawer v-model="drawer" class="fullheight" width="256" app>
+    <v-navigation-drawer v-model="drawer" class="fullheight" width="256" app dark>
       <v-list-item>
         <v-list-item-content>
           <v-avatar size="80"><img src="https://cdn.discordapp.com/attachments/864766942404804620/917618015716114512/unknown.png" alt="logo waroong"/></v-avatar>
-          <v-list-item-title class="title"> Waroong </v-list-item-title>
+          <v-list-item-title class="title"> War<span style="color: #FFD700;">oo</span>ng </v-list-item-title>
           <v-list-item-subtitle>Kelompok 6</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -17,8 +17,11 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app fixed height="75px">
+    <v-app-bar app fixed height="75px" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"><v-icon>mdi-menu</v-icon></v-app-bar-nav-icon>
+      <a class="navbar-brand" style="color: #FFFFFF">
+					War<span style="color: #FFD700;">oo</span>ng
+				</a>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn text router><v-icon @click="logout">mdi-power</v-icon></v-btn>

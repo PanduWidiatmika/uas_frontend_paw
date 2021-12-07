@@ -32,11 +32,12 @@
         </v-card-title>
         <v-card-text>
           <v-container>
-            <v-text-field v-model="form.tanggal" label="Tanggal" required></v-text-field>
-            <v-text-field v-model="form.waktu" label="Waktu" required></v-text-field>
+            <b-form-datepicker id="datepicker" v-model="form.tanggal" class="mb-2" :max="max" size="sm" placeholder="Pilih Tanggal"></b-form-datepicker>
+            <p></p>
+            <v-text-field v-model="form.waktu" label="Waktu" required hint="Format HH:ii (contoh 09:00, 13:00)" persistent-hint></v-text-field>
             <v-text-field v-model="form.biaya" label="Biaya" required></v-text-field>
-            <v-text-field v-model="form.metode_pembayaran" label="Metode Pembayaran" required></v-text-field>
-            <v-text-field v-model="form.note" label="Note" required></v-text-field>
+            <v-select v-model="form.metode_pembayaran" :items=itemsMetodePembayaran label="Metode Pembayaran" required></v-select>
+            <v-text-field v-model="form.note" label="Note" required hint="Opsional" persistent-hint></v-text-field>
           </v-container>
         </v-card-text>
         <v-card-actions>
@@ -52,7 +53,7 @@
         <v-card-title>
           <span class="headline">Warning!</span>
         </v-card-title>
-        <v-card-text>Anda Yakin ingin menghapus kelas ini?</v-card-text>
+        <v-card-text>Anda yakin ingin menghapus transaksi ini?</v-card-text>
         <v-card-action>
           <v-spacer></v-spacer>
             <v-btn color="blue darken-1" text @click="dialogConfirm = false">Cancel</v-btn>
@@ -66,9 +67,18 @@
 </template>
 
 <script>
+// import Datepicker from 'vuejs-datepicker'
+
 export default {
   name: "List",
+  components: {
+      // Datepicker
+  },
+
   data() {
+    const nowDate = new Date();
+    // const nowTime = nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds();
+
     return {
       inputType: 'Tambah',
       load: false,
@@ -78,6 +88,7 @@ export default {
       search: null,
       dialog: false,
       dialogConfirm: false,
+      itemsMetodePembayaran: [ "Tunai" , "Debit" ],
       headers: [
         { text: "Tanggal", align: "start", sortable: true, value: "tanggal"},
         { text: "Waktu", value: "waktu" },
@@ -96,9 +107,15 @@ export default {
         note: null,
       },
       deleteId: '',
-      editId: ''
+      editId: '',
+      // currentTime: {
+      //   tanggal: nowDate,
+      //   waktu: nowTime,
+      // },
+      max: nowDate
     };
   },
+
   methods: {
     setForm(){
       if(this.inputType !== 'Tambah'){
@@ -107,6 +124,7 @@ export default {
         this.save();
       }
     },
+
     //Read Data Transactions
     readData(){
       var url = this.$api + '/transaction';
@@ -118,13 +136,22 @@ export default {
         this.transactions = response.data.data;
       })
     },
+
     //Simpan data transaction
     save() {
       this.transaction.append('tanggal', this.form.tanggal);
       this.transaction.append('waktu', this.form.waktu);
+      // this.transaction.append('tanggal', this.currentTime.tanggal);
+      // this.transaction.append('waktu', this.currentTime.waktu);
+      // this.transaction.append('tanggal', getCurrentDate());
+      // this.transaction.append('waktu', getCurrentTime());
       this.transaction.append('biaya', this.form.biaya);
       this.transaction.append('metode_pembayaran', this.form.metode_pembayaran);
-      this.transaction.append('note', this.form.note);
+      if(this.form.note == null) {
+        this.transaction.append('note', "-");
+      } else {
+        this.transaction.append('note', this.form.note);
+      }
 
       var url = this.$api + '/transaction/'
       this.load = true;
@@ -147,6 +174,7 @@ export default {
         this.load = false;
       });
     },
+
     //Ubah data transaction
     update() {
       let newData = {
@@ -178,6 +206,7 @@ export default {
         this.load = false;
       });
     },
+
     //Hapus data transaction
     deleteData() {
       //menghapus data
@@ -203,6 +232,7 @@ export default {
         this.load = false;
       });
     },
+
     editHandler(item) {
       this.inputType = 'Ubah';
       this.editId = item.id;
@@ -213,16 +243,19 @@ export default {
       this.form.note = item.note;
       this.dialog = true;
     },
+
     deleteHandler(id) {
       this.deleteId = id;
       this.dialogConfirm = true;
     },
+
     close() {
       this.dialog = false;
       this.inputType = 'Tambah';
       this.dialogConfirm = false;
       this.readData();
     },
+
     cancel() {
       this.resetForm();
       this.readData();
@@ -230,6 +263,7 @@ export default {
       this.dialogConfirm = false;
       this.inputType = 'Tambah';
     },
+
     resetForm() {
       this.form = {
         tanggal: null,
@@ -239,12 +273,22 @@ export default {
         note: null,
       };
     },
+
+    // getCurrentDate() {
+    //   return new Date().toLocaleDateString();
+    // },
+
+    // getCurrentTime() {
+    //   return new Date().toLocaleTimeString();
+    // }
   },
+
   computed: {
     formTitle() {
       return this.inputType;
     },
   },
+  
   mounted() {
     this.readData();
   },
