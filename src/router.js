@@ -12,6 +12,20 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
+      name: "Login",
+      meta: { title: "Login" },
+      component: importComponent("Login"),
+    },
+
+    {
+      path: "/register",
+      name: "Register",
+      meta: { title: "Register" },
+      component: importComponent("Register"),
+    },
+
+    {
+      path: "/dashboard",
       component: importComponent("DashboardLayout"),
       children: [
         {
@@ -44,19 +58,7 @@ const router = new VueRouter({
       ],
     },
 
-    {
-      path: "/login",
-      name: "Login",
-      meta: { title: "Login" },
-      component: importComponent("Login"),
-    },
-
-    {
-      path: "/register",
-      name: "Register",
-      meta: { title: "Register" },
-      component: importComponent("Register"),
-    },
+    
 
     {
       path: "*",
