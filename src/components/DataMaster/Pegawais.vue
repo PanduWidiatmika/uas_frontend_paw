@@ -75,7 +75,7 @@ import Datepicker from 'vuejs-datepicker'
     export default {
         name: "List",
         components: {
-            Datepicker
+            // Datepicker
         },
         data() {
             return {
