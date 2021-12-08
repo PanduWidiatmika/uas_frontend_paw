@@ -3,7 +3,7 @@
     <v-container fluid fill-height class="posisinya">
       <v-layout flex align-center justify-center>
         <v-flex xs12 sm6 elevation-6>
-          <v-toolbar class="grey darken-3">
+          <v-toolbar class="grey lighten-2">
             <v-toolbar-title class="grey--text">
               <h1>Register</h1>
             </v-toolbar-title>
@@ -33,9 +33,9 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Jolly%20Lodger");
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500&family=Playfair+Display&display=swap");
 .grey--text {
-  font-family: "Jolly Lodger";
+  font-family: "Hind Siliguri";
 }
 
 .posisinya {
