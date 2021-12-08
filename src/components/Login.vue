@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <v-main class="background">
     <v-container fluid fill-height class="posisinya">
       <v-layout flex align-center justify-center>
         <v-flex xs12 sm6 elevation-6>
@@ -24,11 +24,11 @@
               </div>
             </v-card-text>
           </v-card>
-          <v-snackbar v-model="snackbar" :color="color" timeout="2000" bottom>{{ error_message }}</v-snackbar>
+          <v-snackbar v-model="snackbar" :color="color" timeout="5000" bottom>{{ error_message }}</v-snackbar>
         </v-flex>
       </v-layout>
     </v-container>
-  </main>
+  </v-main>
 </template>
 
 <style>
@@ -43,6 +43,14 @@
   left: 0;
   right: 0;
 }
+
+.background {
+  background-image: url(https://wallpapercave.com/wp/wp1874156.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: -60px;
+}
+
 </style>
 
 <script>

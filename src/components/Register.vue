@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <v-main class="backgroundRegister">
     <v-container fluid fill-height class="posisinya">
       <v-layout flex align-center justify-center>
         <v-flex xs12 sm6 elevation-6>
@@ -12,7 +12,7 @@
             <v-card-text class="pt-4">
               <div>
                 <v-form v-model="valid" ref="form">
-                  <v-text-field label="Name" v-model="name" required></v-text-field>
+                  <v-text-field label="Name" v-model="name" :rules="nameRules" required></v-text-field>
                   <v-text-field label="E-mail" v-model="email" :rules="emailRules" required></v-text-field>
                   <v-text-field label="Password" v-model="password" type="password" min="8" :rules="passwordRules" counter required></v-text-field>
                   <v-layout justify-end>
@@ -25,11 +25,11 @@
               </div>
             </v-card-text>
           </v-card>
-          <v-snackbar v-model="snackbar" :color="color" timeout="2000" bottom>{{ error_message }}</v-snackbar>
+          <v-snackbar v-model="snackbar" :color="color" timeout="5000" bottom>{{ error_message }}</v-snackbar>
         </v-flex>
       </v-layout>
     </v-container>
-  </main>
+  </v-main>
 </template>
 
 <style>
@@ -43,6 +43,13 @@
   top: 20px;
   left: 0;
   right: 0;
+}
+
+.backgroundRegister {
+  background-image: url(https://wallpapercave.com/wp/wp1874156.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: -60px;
 }
 </style>
 
@@ -61,6 +68,7 @@ export default {
       email: "",
       emailRules: [(v) => !!v || "E-mail tidak boleh kosong :("],
       name: "",
+      nameRules: [(v) => !!v || "Nama tidak boleh kosong :("],
     };
   },
 
