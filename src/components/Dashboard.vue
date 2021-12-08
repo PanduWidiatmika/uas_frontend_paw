@@ -28,10 +28,10 @@
       </template>
       <div class="py-4">
         <h2 :class="`headline font-weight-light mb-4 cyan--text`">
-          Halo
+          Start
         </h2>
         <div>
-          aada
+          open as food stand
         </div>
       </div>
     </v-timeline-item>
@@ -42,15 +42,15 @@
       <template v-slot:opposite>
         <span
           :class="`headline font-weight-bold green--text`"
-          v-text="1999"
+          v-text="2002"
         ></span>
       </template>
       <div class="py-4">
         <h2 :class="`headline font-weight-light mb-4 green--text`">
-          Halo
+          Move
         </h2>
         <div>
-          aada
+          rent a building for the restaurant
         </div>
       </div>
     </v-timeline-item>
@@ -61,15 +61,15 @@
       <template v-slot:opposite>
         <span
           :class="`headline font-weight-bold pink--text`"
-          v-text="1999"
+          v-text="2004"
         ></span>
       </template>
       <div class="py-4">
         <h2 :class="`headline font-weight-light mb-4 pink--text`">
-          Halo
+          Move
         </h2>
         <div>
-          aada
+          has our own restaurant building
         </div>
       </div>
     </v-timeline-item>
@@ -80,15 +80,15 @@
       <template v-slot:opposite>
         <span
           :class="`headline font-weight-bold amber--text`"
-          v-text="1999"
+          v-text="2005"
         ></span>
       </template>
       <div class="py-4">
         <h2 :class="`headline font-weight-light mb-4 amber--text`">
-          Halo
+          Updates
         </h2>
         <div>
-          aada
+          Updating our logo & restaurant
         </div>
       </div>
     </v-timeline-item>
@@ -99,15 +99,15 @@
       <template v-slot:opposite>
         <span
           :class="`headline font-weight-bold orange--text`"
-          v-text="1999"
+          v-text="2007"
         ></span>
       </template>
       <div class="py-4">
         <h2 :class="`headline font-weight-light mb-4 orange--text`">
-          Halo
+          Goes International
         </h2>
         <div>
-          aada
+          
         </div>
       </div>
     </v-timeline-item>
@@ -164,7 +164,7 @@
             src: 'https://i.ytimg.com/vi/kHVRI5-hjaM/maxresdefault.jpg',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            src: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
           },
         ],
 
