@@ -4,7 +4,7 @@
 
     <v-card>
       <v-card-title>
-        <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details> </v-text-field>
+        <v-text-field v-model="search" append-icon="mdi-food" label="Search" single-line hide-details> </v-text-field>
 
         <v-spacer></v-spacer>
 
@@ -123,9 +123,9 @@ export default {
       this.menu.append("nama_menu", this.form.nama_menu);
       this.menu.append("deskripsi", this.form.deskripsi);
       this.menu.append("harga", this.form.harga);
-      this.menu.append("kategori", this.itemsKategori);
+      this.menu.append("kategori", this.form.kategori);
 
-      var url = this.$api + "/menu/";
+      var url = this.$api + "/menu";
       this.load = true;
       this.$http
         .post(url, this.menu, {

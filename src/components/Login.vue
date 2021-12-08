@@ -75,6 +75,8 @@ export default {
           .then((response) => {
             // Simpan Data ID User Yang Diinput
             localStorage.setItem("id", response.data.user.id);
+            localStorage.setItem("loginName", response.data.user.name);
+            localStorage.setItem("loginEmail", response.data.user.email);
             localStorage.setItem("token", response.data.access_token);
             this.error_message = response.data.message;
             this.color = "green";

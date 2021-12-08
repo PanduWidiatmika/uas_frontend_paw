@@ -6,7 +6,7 @@
             <v-card-title>
                 <v-text-field
                     v-model="search"
-                    append-icon="mdi-magnify"
+                    append-icon="mdi-account-box-outline"
                     label="Search"
                     single-line
                     hide-details>
@@ -71,11 +71,11 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs-datepicker'
+// import Datepicker from 'vuejs-datepicker'
     export default {
         name: "List",
         components: {
-            Datepicker
+            // Datepicker
         },
         data() {
             return {
@@ -149,7 +149,7 @@ import Datepicker from 'vuejs-datepicker'
                 this.pegawai.append('tanggal_masuk', this.form.tanggal_masuk);
                 this.pegawai.append('gaji', this.form.gaji);
 
-                var url = this.$api + '/pegawai/'
+                var url = this.$api + '/pegawai'
                 this.load = true;
                 this.$http.post(url, this.pegawai, {
                     headers: {

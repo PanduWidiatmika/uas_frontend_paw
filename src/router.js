@@ -55,6 +55,13 @@ const router = new VueRouter({
           meta: { title: "Pegawais" },
           component: importComponent("DataMaster/Pegawais"),
         },
+
+        {
+          path: "/profile",
+          name: "Profile",
+          meta: { title: "Profile" },
+          component: importComponent("DataMaster/Profile"),
+        },
       ],
     },
 

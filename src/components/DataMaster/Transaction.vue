@@ -6,7 +6,7 @@
       <v-card-title>
         <v-text-field
           v-model="search"
-          append-icon="mdi-magnify"
+          append-icon="mdi-cash-multiple"
           label="Search"
           single-line
           hide-details>
@@ -153,7 +153,7 @@ export default {
         this.transaction.append('note', this.form.note);
       }
 
-      var url = this.$api + '/transaction/'
+      var url = this.$api + '/transaction'
       this.load = true;
       this.$http.post(url, this.transaction, {
         headers: {

@@ -10,9 +10,10 @@
       </v-list-item>
       <v-divider></v-divider>
       <v-list dense nav>
-        <v-list-item v-for="item in items" :key="item.title" link tag="router-link" :to="item.to">
+        <v-list-item v-for="item in items" :key="item.title" link tag="router-link" :to="item.to" class="text-left">
+          <v-icon v-text="item.icon"></v-icon>
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title v-text="item.title" class="ml-3"></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -24,7 +25,7 @@
 				</a>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn text router><v-icon @click="logout">mdi-power</v-icon></v-btn>
+        <v-btn text router><v-icon @click="logout">mdi-logout-variant</v-icon></v-btn>
       </v-toolbar-items>
     </v-app-bar>
     <div class="fullheight pa-5">
@@ -40,10 +41,11 @@ export default {
     return {
       drawer: true,
       items: [
-        { title: "Dashboard", to: "/dashboard" },
-        { title: "Menu", to: "/menu" },
-        { title: "Transaksi", to: "/transaction"},
-        { title: "Pegawai", to: "/pegawai"},
+        { title: "Dashboard", to: "/dashboard" , icon: 'mdi-view-dashboard'},
+        { title: "Menu", to: "/menu" , icon: 'mdi-food'},
+        { title: "Transaksi", to: "/transaction", icon: 'mdi-cash-multiple'},
+        { title: "Pegawai", to: "/pegawai", icon: 'mdi-account-box-outline'},
+        { title: "Profile", to: "/profile", icon: 'mdi-face-profile'},
       ],
     };
   },
